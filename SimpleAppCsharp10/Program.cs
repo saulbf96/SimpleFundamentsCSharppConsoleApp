@@ -2,16 +2,190 @@
 
 using System.Globalization;
 
-Console.WriteLine("Basi console");
-
+//-------Estructuras de Programación-----------
 //llamamos al metodo 
 //GetUserData();
 //GetFormatNumericalData();
 //LocalVariableDeclaracion();
 //LocalVarDeclarations();
 //EjemploLinq();
-ForLoopExample();
+//ForLoopExample();
+//ForEachLoopExaple();
+//WhileLoopExample();
+//DoWhileLoopExample();
+//SwitchExample();
+//SimpleArray();
+//JaggedMultidimensionalArray();
+//-----------------------Understanding Methods-------------------------------
 Console.ReadLine();
+
+//-----------------------------------Understanding Methods----------------------------
+
+
+
+
+//------Array multidimencional-------------------------------
+
+static void JaggedMultidimensionalArray()
+{
+    Console.WriteLine("Array multidemencional ");
+    //Aqui tenemos un arrat de diferentesn arrays
+
+    int[][] myJagArray = new int[5][];
+    
+    //crear el jaded array 
+    for (int i = 0; i<myJagArray.Length; i++)
+    {
+        myJagArray[i] = new int[i + 7];
+    }
+
+    //imprimir cada uno row
+
+    for (int i = 0; i < 5; i++)
+    {
+        for (int j = 0; j < myJagArray[i].Length; j++)
+        {
+            Console.WriteLine(myJagArray[i][j] + " ");
+
+        }
+        Console.WriteLine();
+    }
+    Console.WriteLine();
+}
+
+
+
+
+//----------TRABAJANDO CON ARRAYS----------------------
+/*Como probablemente ya sabes, un arreglo es un conjunto de elementos de datos a 
+ * los que se accede mediante un índice numérico. Más específicamente, un arreglo 
+ * es un conjunto de puntos de datos contiguos del mismo tipo
+ * UN ARREGLO SIEMPRE EMPIZA CON INDEX DE 0 EN ADELANTE SI DECLARO UN ARRAY DE 3 
+ * MI INDEX ES 0,1,2
+ */
+static void SimpleArray()
+{
+    Console.WriteLine("Simple array ");
+    //creacion array de tres integres
+
+    int[] myInts = new int[3];
+    myInts[0] = 100;
+    myInts[1] = 200;
+    myInts[2] = 300;
+
+    //Now print each value
+    foreach (int item in myInts)
+    {
+        Console.WriteLine(item);
+
+    }
+    Console.WriteLine();
+
+}
+
+
+
+//switch 
+/*Si se incluyera algún código entre las declaraciones case, 
+ * el compilador generaría un error. Siempre que sean declaraciones
+ * consecutivas, como se mostró antes, los case pueden combinarse 
+ * para compartir código común.
+ 
+ */
+
+// Usando swicht------------------------------------
+
+static void SwitchExample()
+{
+    Console.WriteLine(" 1 [C#], 2 [VB]");
+    Console.WriteLine("Ingresa tu lenguaje preferido");
+
+    string langChoice = Console.ReadLine();
+    int n = int.Parse(langChoice);
+    
+    //entra el switch
+    switch (n)
+    {
+        case 1:
+            Console.WriteLine("Buena eleccion, C# es buen lenguaje");
+            break;
+        case 2:
+            Console.WriteLine("Buena eleccion VB es buen lenguaje");
+            break;
+        default:
+            Console.WriteLine(" muy bien tienes otros gustos");
+            break;
+    }
+}
+
+
+
+
+
+//usi de bucle do-while------------------
+/*
+ * do/while se usa cuando necesitas realizar una acción 
+ * un número indeterminado de veces.
+ */
+static void DoWhileLoopExample()
+{
+    string userIDone = "";
+    do
+    {
+        Console.WriteLine("In do while loop");
+        Console.WriteLine(" Estas tu listo?");
+        Console.WriteLine("[yes] [no]");
+        userIDone = Console.ReadLine();
+
+    } while (userIDone.ToLower() != "yes"); 
+}
+
+
+
+
+
+//Uso de bucles while y do while 
+
+/*La construcción de bucle while es útil cuando deseas ejecutar
+un bloque de instrucciones hasta que se alcance una condición de
+terminación. Dentro del alcance de un bucle while, debes asegurarte 
+de que este evento de terminación realmente ocurra; de lo contrario, 
+quedarás atrapado en un bucle infinito.
+ * 
+ */
+
+static void WhileLoopExample()
+{
+    string userIsDone = "";
+    //prueba de una copia en minusculas de la cadena 
+    while (userIsDone.ToLower() != "yes")
+    {
+        Console.WriteLine("en While LOOP");
+        Console.WriteLine("Estas tu listo? [yes] [no]: ");
+        userIsDone = Console.ReadLine();
+    }
+
+}
+
+//---------------USANDO FOREACH------------------------
+
+//Iterar elementos de un arreglo usando foreach.
+
+static void ForEachLoopExaple()
+{
+    //un array string para recorrer
+    string[] carTypes = { "Ford", "Nissan", "Byd", "Kia" };
+     foreach (var c in carTypes)
+    {
+        Console.WriteLine(c);
+    }
+    int[] myInts = { 10, 20, 30 };
+
+    foreach (var c in myInts)
+    {
+        Console.WriteLine(c);
+    }
+}
 
 //-------------USANDO EL FOR LOOP-------------------------
 static void ForLoopExample()
@@ -135,4 +309,3 @@ static void GetUserData()
         Console.WriteLine(" X formato: {0:X}", 99999);
         Console.WriteLine(" x formato: {0:x}", 99999);
     }
-
